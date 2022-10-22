@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import Main from "./Components/Main"
+import Aside from "./Components/Aside"
+import Navbar from "./Components/Navbar"
+import Api from './Components/Api';
+import Form from './Components/Form';
+import {Route, Routes} from "react-router-dom"
 
-function App() {
+const App:React.FC = () =>{
+ 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex flex-row">
+      <Aside/>
+      <div className="w-full">
+        <Navbar/>
+        <div className='bg-slate-800 p-5 m-5 rounded-lg shadow-xl'>
+          <Routes>
+             <Route path="/" element={<Main />} />
+             <Route path="/Api" element={<Api />} />
+             <Route path="/Form" element={<Form />} />
+          </Routes>        
+        </div>
+      </div>
     </div>
-  );
-}
+  )
+};
 
 export default App;
